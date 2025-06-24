@@ -2,7 +2,7 @@
 
 ## <a href="https://www.shadcn-vue.com/" target="_blank">Shadcn-Vue</a> + <a href="https://vuejs.org/" target="_blank">Vue.js</a> + <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
 
-![Alt text](./public/demo-img.jpg)
+![Alt text](./src/assets/readme.png)
 Live demo is now available: <a href="https://shadcn-vue-landing-page.vercel.app" target="_blank">Live Demo</a>
 
 ## Sections
@@ -35,7 +35,7 @@ Live demo is now available: <a href="https://shadcn-vue-landing-page.vercel.app"
 1. Clone this repositoy:
 
 ```bash
-git clone https://github.com/leoMirandaa/shadcn-vue-landing-page.git
+git clone https://github.com/noppassonchan/portfolio.git
 ```
 
 2. Go into project
