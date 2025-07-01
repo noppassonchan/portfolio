@@ -19,12 +19,13 @@
   ],
   "type": "module",
   "private": true,
+ 
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview --host 0.0.0.0 --port 5173"
+},
+"dependencies": {
     "@selemondev/vue3-marquee": "^0.0.8",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.1.0",

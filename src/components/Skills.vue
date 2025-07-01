@@ -16,38 +16,36 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
     skills: [
-      { name: "JavaScript", level: 90 },
-      { name: "HTML/CSS", level: 95 },
-      { name: "PHP", level: 90 },
+      { name: "JavaScript", level: 'bg-orange-700/30' },
+      { name: "HTML/CSS", level: 'bg-red-700/30' },
+      { name: "PHP", level: 'bg-green-700/30' },
     ],
   },
   {
     title: "Framework & Library",
     skills: [
-      { name: "Vue.js", level: 95 },
-      { name: "Node.js", level: 60 },
-      { name: "Nuxt.js", level: 80 },
-      { name: "jQuery", level: 70 },
-      { name: "Bootstrap", level: 70 },
-      { name: "Tailwind CSS", level: 70 },
-      { name: "Next.js", level: 70 },
+      { name: "Vue.js", level: 'bg-orange-700/30' },
+      { name: "Node.js", level: 'bg-red-700/30' },
+      { name: "Nuxt.js", level: 'bg-blue-700/30' },
+      { name: "jQuery", level: 'bg-purple-700/30' },
+      { name: "Bootstrap", level: 'bg-indigo-700/30' },
+      { name: "Tailwind CSS", level: 'bg-cyan-700/30' },
+      { name: "Next.js", level: 'bg-yellow-700/30' },
     ],
   },
   {
     title: "Tools & Technology",
     skills: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 65 },
-      { name: "AWS", level: 65 },
-      { name: "CI/CD", level: 50 },
-      { name: "RESTful API", level: 85 },
+      { name: "Git", level: 'bg-green-700/30' },
+      { name: "Docker", level: 'bg-red-700/30' },  
+      { name: "RESTful API", level: 'bg-orange-700/30' },
     ],
   },{
     title: "Database",
     skills: [
-      { name: "Oracle", level: 90 },
-      { name: "MySQL", level: 65 },
-      { name: "SQL Server", level: 65 },
+      { name: "Oracle", level: 'bg-blue-700/30' },
+      { name: "MySQL", level: 'bg-green-700/30' },
+      { name: "SQL Server", level: 'bg-red-700/30' },
     ],
   }
 ];
@@ -69,19 +67,24 @@ const skillCategories: SkillCategory[] = [
         >
           <h3 class="text-xl font-semibold mb-4 text-center">{{ category.title }}</h3>
           
-          <div class="space-y-6">
+          <CardContent>
             <div 
-              v-for="(skill, skillIndex) in category.skills" 
-              :key="skillIndex"
               class="space-y-2"
             >
-              <div class="flex justify-between items-center">
-                <span>{{ skill.name }}</span>
-                <Badge>{{ skill.level }}%</Badge>
-              </div>
-              <Progress :value="skill.level" class="h-2" />
+                <CardContent>
+                  <div class="flex flex-wrap gap-2">
+                  <Badge 
+                    v-for="(skill, skillIndex) in category.skills" 
+                    :key="skillIndex"
+                    variant="outline"
+                    :class="`${skill.level}`"
+                  >
+                    {{ skill.name }}
+                  </Badge>
+                  </div>
+              </CardContent>
             </div>
-          </div>
+          </CardContent>
         </div>
       </div>
 

@@ -60,7 +60,7 @@ const routeList: RouteProps[] = [
   {
     href: "#contact",
     label: "contact",
-  },
+  }
 ];
 
 const isOpen = ref<boolean>(false);
@@ -83,8 +83,11 @@ const isOpen = ref<boolean>(false);
     :class="{
       'shadow-light': mode === 'light',
       'shadow-dark': mode === 'dark',
-      'w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2 bg-card shadow-md': true,
+      'w-[100%] md:w-[80%] lg:w-[85%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2 bg-card shadow-md': true,
     }"
+    style="
+    width: 100%;
+"
   >
     <a
       href="/"
@@ -93,9 +96,6 @@ const isOpen = ref<boolean>(false);
     <CodeIcon
       class="vi-primary rounded-lg mr-2 size-20"
     />
-      <!-- <ShopIcon
-        class="vi-accent vi-primary rounded-lg mr-2"
-      /> -->
      Portfolio
      
     </a>
@@ -111,7 +111,7 @@ const isOpen = ref<boolean>(false);
 
         <SheetContent
           side="left"
-          class="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-card"
+          class="flex flex-col justify-between rounded-tr-2xl rounded-br-xl bg-card"
         >
           <div>
             <SheetHeader class="mb-4 ml-4">
@@ -179,11 +179,9 @@ const isOpen = ref<boolean>(false);
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        <NavigationMenuItem v-for="{ href, label } in routeList" :key="label">
           <NavigationMenuLink asChild>
             <Button
-              v-for="{ href, label } in routeList"
-              :key="label"
               as-child
               variant="ghost"
               class="justify-start text-base"
@@ -193,7 +191,9 @@ const isOpen = ref<boolean>(false);
               </a>
             </Button>
           </NavigationMenuLink>
+          
         </NavigationMenuItem>
+        
       </NavigationMenuList>
     </NavigationMenu>
 
@@ -211,20 +211,26 @@ const isOpen = ref<boolean>(false);
           href="https://github.com/noppassonchan"
           target="_blank"
         >
-          <!-- <GithubIcon class="size-5" /> -->
-          <GithubIcon class="size-5" />
+          <GithubIcon />
         </a>
       </Button>
     </div>
+   
   </header>
 </template>
 
 <style scoped>
-.shadow-light {
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.085);
+header {
+  @media (min-width: 768px) {
+    width: 70%;
 }
 
-.shadow-dark {
-  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.141);
+  @media (min-width: 1024px) {
+    width: 75%;
+  }
+
+  @media (min-width: 1280px) {
+    width: 80%;
+  }
 }
 </style>

@@ -14,10 +14,10 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    title: "Frontend Developer Junior (2 year) - Senior (3 ปี)",
+    title: "Frontend Developer Junior (2 year) - Senior (3 year)",
     company: "Bizpotential Co., Ltd.",
     location: "Bangkok",
-    period: "2018 – Present (6 years)",
+    period: "2019 – Present (6 years)",
     description: [
       "Role: Develop and design UI for web applications for government agencies",
       "1. NSW Single Sign On – Department of Agricultural Extension",
