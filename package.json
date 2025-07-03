@@ -1,6 +1,6 @@
 {
-  "name": "shadcn-vue-landing-page",
-  "description": "Shadcn/Vue landing page template using Vue, Shadcn/Vue + TypeScript + Tailwind CSS.",
+  "name": "portfolio-api",
+  "description": "Portfolio API",
   "version": "0.1.1",
   "author": {
     "name": "Leopoldo Miranda",
@@ -19,20 +19,22 @@
   ],
   "type": "module",
   "private": true,
- 
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview --host 0.0.0.0 --port 5173"
-},
-"dependencies": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5173"
+  },
+  "dependencies": {
     "@selemondev/vue3-marquee": "^0.0.8",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.1.0",
+    "axios": "^1.10.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
     "embla-carousel": "^8.3.0",
     "embla-carousel-vue": "^8.3.0",
+    "express": "^5.1.0",
     "lucide-vue-next": "^0.452.0",
     "radix-vue": "^1.9.7",
     "tailwind-merge": "^2.5.3",
@@ -50,5 +52,4 @@
     "vite": "^5.3.1",
     "vue-tsc": "^2.0.21"
   }
-
 }

@@ -1,23 +1,21 @@
-services:
-  # Development service with hot-reload
-  dev:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    ports:
-      - "5173:5173"
-    volumes:
-      - ./:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-    command: npm run dev
+version: '3'
 
-  # Production service
-  prod:
+services:
+  frontend:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80"
-    restart: unless-stopped
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    command: node server.js

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "@/components/ui/progress";  
 
 interface SkillCategory {
   title: string;
@@ -14,11 +14,14 @@ interface Skill {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Programming Languages",
+    title: "Programming Languages & Database",
     skills: [
       { name: "JavaScript", level: 'bg-orange-700/30' },
       { name: "HTML/CSS", level: 'bg-red-700/30' },
       { name: "PHP", level: 'bg-green-700/30' },
+      { name: "Oracle", level: 'bg-blue-700/30' },
+      { name: "MySQL", level: 'bg-green-700/30' },
+      { name: "SQL Server", level: 'bg-red-700/30' },
     ],
   },
   {
@@ -40,14 +43,15 @@ const skillCategories: SkillCategory[] = [
       { name: "Docker", level: 'bg-red-700/30' },  
       { name: "RESTful API", level: 'bg-orange-700/30' },
     ],
-  },{
-    title: "Database",
-    skills: [
-      { name: "Oracle", level: 'bg-blue-700/30' },
-      { name: "MySQL", level: 'bg-green-700/30' },
-      { name: "SQL Server", level: 'bg-red-700/30' },
-    ],
   }
+  // ,{
+  //   title: "Database",
+  //   skills: [
+  //     { name: "Oracle", level: 'bg-blue-700/30' },
+  //     { name: "MySQL", level: 'bg-green-700/30' },
+  //     { name: "SQL Server", level: 'bg-red-700/30' },
+  //   ],
+  // }
 ];
 </script>
 
@@ -98,22 +102,13 @@ const skillCategories: SkillCategory[] = [
         <div class="border rounded-lg p-4 text-center hover:border-primary transition-colors">
           <span>Responsive Design</span>
         </div>
-      
-        <div class="border rounded-lg p-4 text-center hover:border-primary transition-colors">
-          <span>Agile/Scrum</span>
-        </div>
         <div class="border rounded-lg p-4 text-center hover:border-primary transition-colors">
           <span>Database Design</span>
         </div>
         <div class="border rounded-lg p-4 text-center hover:border-primary transition-colors">
           <span>Testing</span>
         </div>
-        <div class="border rounded-lg p-4 text-center hover:border-primary transition-colors">
-          <span>Performance Optimization</span>
-        </div>
-        <div class="border rounded-lg p-4 text-center hover:border-primary transition-colors">
-          <span>Security Best Practices</span>
-        </div>
+       
       </div>
     </div>
   </section>

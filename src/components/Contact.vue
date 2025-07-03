@@ -16,6 +16,7 @@ import { Textarea } from "./ui/textarea";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 import { AlertCircle, Building2, Phone, Mail, Clock } from "lucide-vue-next";
+import axios from 'axios';
 
 interface ContactFormeProps {
   firstName: string;
@@ -29,19 +30,55 @@ const contactForm = reactive<ContactFormeProps>({
   firstName: "",
   lastName: "",
   email: "",
-  subject: "Web Development",
+  subject: "",
   message: "",
 });
 
 const invalidInputForm = ref<boolean>(false);
+const isSubmitting = ref<boolean>(false);
+const submitSuccess = ref<boolean>(false);
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   const { firstName, lastName, email, subject, message } = contactForm;
   console.log(contactForm);
+  
+  // ตรวจสอบข้อมูลก่อนส่ง
+  if (!firstName || !lastName || !email || !message) {
+    invalidInputForm.value = true;
+    return;
+  }
+  
+  invalidInputForm.value = false;
+  isSubmitting.value = true;
+  
+  try {
+    // ส่งข้อมูลไปยัง API
+    const response = await axios.post('http://localhost:5000/api-portfolio', {
+      firstName,
+      lastName,
+      email,
+      subject,
+      message
+    }
+  );
+    
+    console.log('ส่งข้อมูลสำเร็จ:', response.data);
+    submitSuccess.value = true;
+    
+    // รีเซ็ตฟอร์ม
+    contactForm.firstName = "";
+    contactForm.lastName = "";
+    contactForm.email = "";
+    contactForm.subject = "";
+    contactForm.message = "";
 
-  const mailToLink = `mailto:somchai@example.com?subject=${subject}&body=สวัสดี ฉันชื่อ ${firstName} ${lastName}, อีเมลของฉันคือ ${email}. %0D%0A${message}`;
-
-  window.location.href = mailToLink;
+    
+  } catch (error) {
+    console.error('เกิดข้อผิดพลาด:', error);
+    invalidInputForm.value = true;
+  } finally {
+    isSubmitting.value = false;
+  }
 };
 </script>
 
@@ -111,13 +148,14 @@ const handleSubmit = () => {
             @submit.prevent="handleSubmit"
             class="grid gap-4"
           >
+          <!-- {{ contactForm }} -->
             <div class="flex flex-col md:flex-row gap-8">
               <div class="flex flex-col w-full gap-1.5">
                 <Label for="first-name">First Name</Label>
                 <Input
                   id="first-name"
                   type="text"
-                  placeholder="Noppasson"
+                  placeholder=""
                   v-model="contactForm.firstName"
                 />
               </div>
@@ -127,7 +165,7 @@ const handleSubmit = () => {
                 <Input
                   id="last-name"
                   type="text"
-                  placeholder="Chanponsaen"
+                  placeholder=""
                   v-model="contactForm.lastName"
                 />
               </div>
@@ -138,7 +176,7 @@ const handleSubmit = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="noppasson.chan@gmail.com"
+                placeholder=""
                 v-model="contactForm.email"
               />
             </div>
